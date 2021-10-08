@@ -1,26 +1,30 @@
-import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { AppBar, Container, CssBaseline, Paper, Toolbar } from '@mui/material';
+import NavOption from './components/shared/NavOption/NavOption';
+import { withRouter } from 'react-router-dom';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  return (<>
+    <CssBaseline />
+    <AppBar position="static" elevation={0} className="app-nav-bar">
+      <Toolbar>
+        <NavOption text="Home" to="/" path="/" />
+      </Toolbar>
+      <Toolbar>
+        <NavOption text="Demo 1" to="/demo1" path="/" />
+      </Toolbar>
+      <Toolbar>
+        <NavOption text="Demo 2" to="/demo2" path="/" />
+      </Toolbar>
+    </AppBar>
+    <Container maxWidth="lg" className="view-container">
+      <Paper className="view-paper">
+        Here is the content
+      </Paper>
+    </Container>
+  </>
   );
 }
 
-export default App;
+export default withRouter(App);
